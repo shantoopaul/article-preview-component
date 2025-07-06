@@ -1,10 +1,116 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
+		<!-- Metatags -->
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Article preview component</title>
+		<!-- Favicon -->
+		<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicons/favicon-32x32.png" />
+		<!-- Preload -->
+		<link
+			rel="preload"
+			href="/assets/fonts/manrope-v19-latin-500.woff2"
+			as="font"
+			type="font/woff2"
+			crossorigin />
+		<link
+			rel="preload"
+			href="/assets/fonts/manrope-v19-latin-700.woff2"
+			as="font"
+			type="font/woff2"
+			crossorigin />
+		<link rel="preload" as="image" href="/assets/images/drawers.webp" />
+		<link rel="preload" as="image" href="/assets/images/avatar-michelle.webp" />
+		<!-- Stylesheet -->
 		<link rel="stylesheet" href="styles.css" />
+		<!-- Page title -->
+		<title>Article preview component</title>
 	</head>
-	<body></body>
+	<body>
+		<main>
+			<!-- Visually hidden heading for screen readers -->
+			<h1 class="visually-hidden">Article preview component</h1>
+
+			<!-- Card -->
+			<article class="card">
+				<!-- Card image -->
+				<div class="card-image">
+					<img src="/assets/images/drawers.webp" alt="drawers" />
+				</div>
+				<!-- Card contents -->
+				<div class="card-contents">
+					<h2>
+						Shift the overall look and feel by adding these wonderful touches to
+						furniture in your home
+					</h2>
+					<p>
+						Ever been in a room and felt like something was missing? Perhaps it felt
+						slightly bare and uninviting. I've got some simple tips to help you make any
+						room feel complete.
+					</p>
+					<!-- Author info & Share button -->
+					<div class="author-n-share">
+						<!-- Author info -->
+						<div class="author-section">
+							<img
+								src="/assets/images/avatar-michelle.webp"
+								alt="Michelle Appleton" />
+							<div class="author-info">
+								<h3>Michelle Appleton</h3>
+								<p>28 Jun 2020</p>
+							</div>
+						</div>
+						<!-- Share button -->
+						<button
+							class="share-btn"
+							title="Share on socials"
+							type="button"
+							aria-expanded="false">
+							<img
+								src="/assets/svgs/share.svg"
+								alt=""
+								aria-hidden="true"
+								class="share-icon" />
+						</button>
+					</div>
+					<!-- modal -->
+					<div class="modal hidden" aria-hidden="true">
+						<p>Share</p>
+						<ul>
+							<li>
+								<a
+									href="https://www.frontendmentor.io/profile/shantoopaul"
+									target="_blank"
+									rel="noopener noreferrer">
+									<img src="/assets/svgs/facebook.svg" alt="facebook" />
+									<span class="visually-hidden"> (opens in a new tab) </span>
+								</a>
+							</li>
+							<li>
+								<a
+									href="https://www.frontendmentor.io/profile/shantoopaul"
+									target="_blank"
+									rel="noopener noreferrer">
+									<img src="/assets/svgs/twitter.svg" alt="twitter" />
+									<span class="visually-hidden"> (opens in a new tab) </span>
+								</a>
+							</li>
+							<li>
+								<a
+									href="https://www.frontendmentor.io/profile/shantoopaul"
+									target="_blank"
+									rel="noopener noreferrer">
+									<img src="/assets/svgs/pinterest.svg" alt="pinterest" />
+									<span class="visually-hidden"> (opens in a new tab) </span>
+								</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</article>
+		</main>
+
+		<!-- Script -->
+		<script defer src="scripts.js"></script>
+	</body>
 </html>
