@@ -15,6 +15,52 @@
 	src: url('./assets/fonts/manrope-v19-latin-700.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
 }
 
+/* Variables */
+:root {
+	--grey-dark: hsl(217, 19%, 35%);
+	--grey-mid: hsl(214, 17%, 51%);
+	--grey-eh: hsl(212, 23%, 69%);
+	--grey-light: hsl(210, 46%, 95%);
+	--white: hsl(0, 0%, 100%);
+
+	--text-13: 0.8125rem;
+	--text-16: 1rem;
+	--text-20: 1.25rem;
+
+	--font-medium: 500;
+	--font-bold: 700;
+
+	--leading-4: 1.4;
+	--leading-5: 1.5;
+
+	--tracking-wide: 0.0125em;
+	--tracking-widest: 0.4em;
+
+	--space-74: 4.625rem;
+	--space-40: 2.5rem;
+	--space-38: 2.375rem;
+	--space-32: 2rem;
+	--space-36: 2.25rem;
+	--space-30: 1.875rem;
+	--space-24: 1.5rem;
+	--space-20: 1.25rem;
+	--space-18: 1.125rem;
+	--space-16: 1rem;
+	--space-12: 0.75rem;
+
+	--radius-10: 10px;
+
+	--transition-3: 0.3s ease-in-out;
+	--transition-5: 0.5s ease-in-out;
+
+	--shadow-color: 211deg 15% 59%;
+	--shadow-elevation-medium: 0.3px 0.5px 0.7px hsl(var(--shadow-color) / 0.36),
+		0.8px 1.6px 2px -0.8px hsl(var(--shadow-color) / 0.36),
+		2.1px 4.1px 5.2px -1.7px hsl(var(--shadow-color) / 0.36),
+		5px 10px 12.6px -2.5px hsl(var(--shadow-color) / 0.36);
+	--shadow-elevation-high: 17px 33.9px 42.7px -2.1px hsl(var(--shadow-color) / 0.34);
+}
+
 /* Global styles */
 * {
 	margin: 0;
@@ -24,7 +70,244 @@
 
 body {
 	font-family: 'Manrope', sans-serif;
-	font-weight: 500;
+	font-size: var(--text-13);
+	font-weight: var(--font-medium);
+	line-height: var(--leading-5);
+	color: var(--grey-dark);
+	background-color: var(--grey-light);
+}
+
+img {
+	display: block;
+	max-width: 100%;
+}
+
+h2 {
+	font-size: var(--text-16);
+	letter-spacing: var(--tracking-wide);
+	line-height: var(--leading-5);
+
+	@media screen and (min-width: 48rem) {
+		font-size: var(--text-20);
+		line-height: var(--leading-4);
+	}
+}
+
+p {
+	text-wrap: pretty;
+}
+
+li {
+	list-style: none;
+}
+
+main {
+	align-items: center;
+	justify-content: center;
+	min-height: 100vh;
+}
+
+.card-container {
+	justify-content: center;
+	margin: var(--space-74) auto;
+}
+
+.card {
+	position: relative;
+	flex-direction: column;
+	max-width: 20.5rem;
+	width: 100%;
+	margin-inline: var(--space-24);
+	border-radius: var(--radius-10);
+	background-color: var(--white);
+	overflow: hidden;
+
+	@media screen and (min-width: 48rem) {
+		flex-direction: row;
+		max-width: 45.75rem;
+		margin-inline: var(--space-32);
+		overflow: visible;
+		box-shadow: var(--shadow-elevation-high);
+	}
+}
+
+.card-image {
+	position: relative;
+	height: 12.5rem;
+	border-start-start-radius: var(--radius-10);
+	border-start-end-radius: var(--radius-10);
+	overflow: hidden;
+
+	img {
+		position: absolute;
+		height: 100%;
+		width: 100%;
+		object-fit: cover;
+		object-position: 50% 25%;
+		filter: brightness(0.8);
+		transform-origin: top;
+		transition: var(--transition-5);
+
+		&:hover {
+			transform: scale(1.25);
+			filter: brightness(1);
+		}
+	}
+
+	@media screen and (min-width: 48rem) {
+		height: 100%;
+		width: 100%;
+		max-width: 17.875rem;
+		flex-shrink: 0;
+		border-start-start-radius: var(--radius-10);
+		border-end-start-radius: var(--radius-10);
+		border-start-end-radius: 0;
+
+		img {
+			transform-origin: right top;
+			object-position: left center;
+		}
+	}
+}
+
+.card-contents {
+	padding: var(--space-38) var(--space-32) var(--space-20);
+
+	> p {
+		margin-block-start: var(--space-12);
+		color: var(--grey-mid);
+	}
+
+	@media screen and (min-width: 48rem) {
+		padding: var(--space-32) var(--space-40);
+	}
+}
+
+.author-n-share {
+	justify-content: space-between;
+	align-items: center;
+	margin-block-start: var(--space-38);
+
+	@media screen and (min-width: 48rem) {
+		margin-block-start: var(--space-20);
+	}
+}
+
+.author-section {
+	align-items: center;
+	column-gap: var(--space-16);
+
+	img {
+		width: 2.5rem;
+		height: 2.5rem;
+		border-radius: 50%;
+	}
+
+	h3 {
+		font-size: var(--text-13);
+		font-weight: var(--font-bold);
+	}
+
+	p {
+		color: var(--grey-eh);
+	}
+}
+
+.share-btn {
+	justify-content: center;
+	align-items: center;
+	width: var(--space-32);
+	height: var(--space-32);
+	border: none;
+	border-radius: 50%;
+	background-color: var(--grey-light);
+	cursor: pointer;
+	z-index: 3;
+	transition: var(--transition-3);
+
+	img {
+		transition: var(--transition-3);
+	}
+
+	&:hover {
+		img {
+			transform: rotate(15deg);
+		}
+	}
+	&:active,
+	&.active {
+		background-color: var(--grey-mid);
+
+		img {
+			transform: rotate(15deg);
+			filter: brightness(0) invert(1);
+		}
+	}
+}
+
+.modal {
+	display: flex;
+	column-gap: var(--space-16);
+	align-items: center;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	padding: var(--space-30) var(--space-32);
+	border-end-start-radius: var(--radius-10);
+	border-end-end-radius: var(--radius-10);
+	background-color: var(--grey-dark);
+	animation: modal-animation var(--transition-5);
+
+	p {
+		color: var(--grey-eh);
+		letter-spacing: var(--tracking-widest);
+		text-transform: uppercase;
+	}
+
+	.social-links {
+		justify-content: center;
+		align-items: center;
+		gap: var(--space-16);
+
+		li {
+			transition: var(--transition-3);
+
+			&:hover {
+				transform: scale(1.25);
+
+				.facebook {
+					filter: invert(30%) sepia(50%) saturate(9999%) hue-rotate(217deg);
+				}
+				.twitter {
+					filter: invert(50%) sepia(200%) saturate(999%) hue-rotate(175deg);
+				}
+				.pinterest {
+					filter: invert(80%) sepia(40%) saturate(9999%) hue-rotate(0deg);
+				}
+			}
+		}
+	}
+
+	@media screen and (min-width: 48rem) {
+		width: max-content;
+		bottom: 34%;
+		left: 75%;
+		padding: var(--space-18) var(--space-36);
+		border-radius: var(--radius-10);
+		box-shadow: var(--shadow-elevation-medium);
+
+		&::before {
+			content: '';
+			position: absolute;
+			top: 100%;
+			left: 50%;
+			transform: translateX(-50%) translateY(-50%) rotate(45deg);
+			width: 1rem;
+			height: 1rem;
+			background-color: var(--grey-dark);
+		}
+	}
 }
 
 /* utilities */
@@ -36,4 +319,25 @@ body {
 	clip: rect(0 0 0 0); /* Legacy property for Internet Explorer */
 	clip-path: inset(50%);
 	white-space: nowrap;
+}
+
+.hidden {
+	display: none;
+}
+
+.flex {
+	display: flex;
+}
+
+/* animations */
+@keyframes modal-animation {
+	from {
+		opacity: 0;
+		translate: 0 var(--space-30);
+	}
+
+	to {
+		translate: 0 0;
+		opacity: 1;
+	}
 }
